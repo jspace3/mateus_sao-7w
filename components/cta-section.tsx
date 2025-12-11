@@ -1,7 +1,13 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import { Heart } from "lucide-react"
+import { DonationModal } from "./donation-modal"
 
 export function CtaSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <section className="bg-gradient-to-b from-orange-400 to-orange-500 py-10 px-4">
       <div className="max-w-md mx-auto text-center">
@@ -11,19 +17,19 @@ export function CtaSection() {
           dependem da nossa ajuda.
         </p>
 
-        <a
-          href="https://wa.me/5521965407572"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => setIsModalOpen(true)}
           className="inline-flex items-center gap-2 bg-[#2D5A4C] text-white font-semibold py-3 px-8 rounded-full hover:bg-[#234539] transition-all hover:scale-105"
         >
           Quero Ajudar Agora <Heart className="w-4 h-4 fill-current" />
-        </a>
+        </button>
 
         <div className="mt-8">
           <Image src="/images/logo.png" alt="Casa Geriátrica São Mateus" width={80} height={80} className="mx-auto" />
         </div>
       </div>
+
+      <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }

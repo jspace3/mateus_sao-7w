@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
+import { DonationModal } from "./donation-modal"
 
 const trabalhos = [
   {
@@ -33,6 +34,7 @@ const trabalhos = [
 
 export function TrabalhosSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Auto-play carousel
   useEffect(() => {
@@ -112,13 +114,15 @@ export function TrabalhosSection() {
           </button>
         </div>
 
-        <a
-          href="#"
+        <button
+          onClick={() => setIsModalOpen(true)}
           className="inline-block mt-8 bg-[#2D5A3D] text-white font-bold py-3 px-10 rounded-full text-lg hover:bg-[#234a31] transition-colors hover:scale-105 transform"
         >
           QUERO AJUDAR
-        </a>
+        </button>
       </div>
+
+      <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }

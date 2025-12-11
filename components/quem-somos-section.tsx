@@ -1,14 +1,21 @@
+"use client"
+
+import { useState } from "react"
+import { DonationModal } from "./donation-modal"
+
 export function QuemSomosSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <section className="bg-[#F5F0E8] py-8 px-4">
       {/* Botão QUERO AJUDAR */}
       <div className="flex justify-center mb-10">
-        <a
-          href="#doar"
+        <button
+          onClick={() => setIsModalOpen(true)}
           className="bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold text-lg px-10 py-4 rounded-full shadow-lg transition-colors"
         >
           QUERO AJUDAR
-        </a>
+        </button>
       </div>
 
       {/* Título Quem Somos */}
@@ -30,6 +37,8 @@ export function QuemSomosSection() {
           paz..
         </p>
       </div>
+
+      <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }

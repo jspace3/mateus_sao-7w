@@ -4,6 +4,7 @@ import { VideoSection } from "@/components/video-section"
 import { QuemSomosSection } from "@/components/quem-somos-section"
 import { EstatisticasSection } from "@/components/estatisticas-section"
 import { SalveAbrigoSection } from "@/components/salve-abrigo-section"
+import { DoacaoSection } from "@/components/doacao-section"
 import { ImpactoSection } from "@/components/impacto-section"
 import { TrabalhosSection } from "@/components/trabalhos-section"
 import { DepoimentosSection } from "@/components/depoimentos-section"
@@ -19,6 +20,7 @@ export default function Home() {
       <QuemSomosSection />
       <EstatisticasSection />
       <SalveAbrigoSection />
+      <DoacaoSection />
       <ImpactoSection />
       <TrabalhosSection />
       <DepoimentosSection />

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { DonationModal } from "./donation-modal"
 
 const impactos = [
   {
@@ -31,6 +32,7 @@ const impactos = [
 
 export function ImpactoSection() {
   const [visibleItems, setVisibleItems] = useState<number[]>([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -63,7 +65,10 @@ export function ImpactoSection() {
     >
       <div className="max-w-md mx-auto">
         <div className="flex justify-center mb-6">
-          <button className="bg-[#2D5A3D] hover:bg-[#234a31] text-white font-bold text-lg px-8 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-[#2D5A3D] hover:bg-[#234a31] text-white font-bold text-lg px-8 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+          >
             QUERO AJUDAR
           </button>
         </div>
@@ -87,6 +92,8 @@ export function ImpactoSection() {
           ))}
         </div>
       </div>
+
+      <DonationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }
