@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Heart } from "lucide-react"
+import { addUtmsToUrl } from "@/lib/add-utms"
 
 const doacoes = [
   { valor: 15, link: "https://pay.saomateus.online/693b4fa2482d3f7a0457cff6" },
@@ -57,7 +58,7 @@ export function DoacaoSection() {
           {doacoes.map((doacao, index) => (
             <a
               key={doacao.valor}
-              href={doacao.link}
+              href={addUtmsToUrl(doacao.link)}
               target="_blank"
               rel="noopener noreferrer"
               className={`group flex flex-col items-center justify-center bg-white/10 hover:bg-orange-500 rounded-xl p-3 transition-all duration-300 hover:scale-105 border border-white/20 hover:border-orange-500 ${

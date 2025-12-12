@@ -2,6 +2,7 @@
 
 import { X, Heart } from "lucide-react"
 import { useEffect } from "react"
+import { addUtmsToUrl } from "@/lib/add-utms"
 
 const valores = [
   { valor: "R$ 15", link: "https://pay.saomateus.online/693b4fa2482d3f7a0457cff6" },
@@ -55,7 +56,7 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
           {valores.map((item) => (
             <a
               key={item.valor}
-              href={item.link}
+              href={addUtmsToUrl(item.link)}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#2D5A4C] hover:bg-[#234539] text-white font-bold py-3 px-4 rounded-xl text-center transition-all hover:scale-105"
