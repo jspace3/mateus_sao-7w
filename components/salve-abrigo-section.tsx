@@ -50,6 +50,7 @@ export function SalveAbrigoSection() {
             alt="Fotos do abrigo - idosos no refeitório, corte de cabelo, idosa feliz"
             width={600}
             height={200}
+            loading="lazy"
             className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
           />
         </div>

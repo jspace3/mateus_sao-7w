@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+
 export function HeroSection() {
   return (
     <section className="bg-[#F5F0E8]">
@@ -9,7 +11,14 @@ export function HeroSection() {
         </h2>
       </div>
 
-      <img src="/images/12.png" alt="Na Casa Geriátrica São Mateus - Cuidamos Com Amor" className="w-full h-auto" />
+      <Image
+        src="/images/12.png"
+        alt="Na Casa Geriátrica São Mateus - Cuidamos Com Amor"
+        width={1920}
+        height={1080}
+        priority
+        className="w-full h-auto"
+      />
     </section>
   )
 }
