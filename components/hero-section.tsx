@@ -12,7 +12,7 @@ export function HeroSection() {
       </div>
 
       <Image
-        src="/images/12.png"
+        src="/images/12.jpg"
         alt="Na Casa Geriátrica São Mateus - Cuidamos Com Amor"
         width={1920}
         height={1080}
