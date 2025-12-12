@@ -10,8 +10,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Casa Geriátrica São Mateus - Salvando Vidas com Amor",
-  description:
-    "Casa Geriátrica São Mateus é um lar para idosos em Guadalupe, Rio de Janeiro. Fundada em 1983, cuidamos de mais de 100 idosos com amor e dedicação.",
+  description: "Cuidamos com amor",
   generator: "v0.app",
   icons: {
     icon: "/icon.svg",
