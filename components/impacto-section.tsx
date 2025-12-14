@@ -5,7 +5,7 @@ import { DonationModal } from "./donation-modal"
 
 const impactos = [
   {
-    valor: "R$ 15",
+    valor: "R$ 22",
     descricao: "Ajuda na compra de itens de higiene, como um sabonete e pasta de dente",
   },
   {

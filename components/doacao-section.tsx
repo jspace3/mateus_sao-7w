@@ -5,7 +5,7 @@ import { Heart } from "lucide-react"
 import { addUtmsToUrl } from "@/lib/add-utms"
 
 const doacoes = [
-  { valor: 15, link: "https://pay.saomateus.online/693b4fa2482d3f7a0457cff6" },
+  { valor: 22, link: "https://pay.saomateus.online/693b4fa2482d3f7a0457cff6" },
   { valor: 30, link: "https://pay.saomateus.online/693b4fbd078bc7273992a0c8" },
   { valor: 75, link: "https://pay.saomateus.online/693b4fd621becfe86a21c4b3" },
   { valor: 150, link: "https://pay.saomateus.online/693b4fee21becfe86a21c5d0" },
