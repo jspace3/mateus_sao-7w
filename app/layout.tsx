@@ -47,14 +47,9 @@ export default function RootLayout({
           data-utmify-prevent-xcod-sck="true"
           data-utmify-prevent-subids="true"
           strategy="afterInteractive"
-          onError={() => console.log("[v0] Utmify UTMs script failed to load")}
         />
 
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-175BZ8DWT0"
-          strategy="afterInteractive"
-          onError={() => console.log("[v0] Google Analytics failed to load")}
-        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-175BZ8DWT0" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             try {
