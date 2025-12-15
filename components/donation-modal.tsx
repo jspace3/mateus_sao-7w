@@ -7,12 +7,12 @@ import { addUtmsToUrl } from "@/lib/add-utms"
 const valores = [
   { valor: 20, link: "https://pay.saomateus.online/693b4fa2482d3f7a0457cff6" },
   { valor: 30, link: "https://pay.saomateus.online/693b4fbd078bc7273992a0c8" },
-  { valor: 50, link: "" }, // Link pendente
-  { valor: 100, link: "" }, // Link pendente
+  { valor: 50, link: "https://pay.saomateus.online/693b4fa2482d3f7a0457cff6" },
+  { valor: 100, link: "https://pay.saomateus.online/693b500b078bc7273992a3b4" },
   { valor: 150, link: "https://pay.saomateus.online/693b4fee21becfe86a21c5d0" },
-  { valor: 250, link: "" }, // Link pendente
+  { valor: 250, link: "https://pay.saomateus.online/693b500b078bc7273992a3b4" },
   { valor: 500, link: "https://pay.saomateus.online/693b5022482d3f7a0457d63e" },
-  { valor: 1000, link: "" }, // Link pendente
+  { valor: 1000, link: "https://pay.saomateus.online/693b500b078bc7273992a3b4" },
 ]
 
 interface DonationModalProps {
@@ -24,7 +24,7 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
   const [name, setName] = useState("")
   const [anonymous, setAnonymous] = useState(false)
   const [message, setMessage] = useState("")
-  const [selectedValue, setSelectedValue] = useState<number | null>(null)
+  const [selectedValue, setSelectedValue] = useState<number | null>(30)
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
