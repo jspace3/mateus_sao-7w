@@ -43,7 +43,7 @@
 
 ## 📁 ESTRUTURA DE PASTAS
 
-\`\`\`
+```
 wordpress-completo/
 ├── index.html          (Página principal)
 ├── css/
@@ -62,7 +62,7 @@ wordpress-completo/
 │       ├── 5.jpeg
 │       └── 6.jpeg
 └── INSTALACAO.md       (Este arquivo)
-\`\`\`
+```
 
 ## ⚙️ CONFIGURAÇÕES
 

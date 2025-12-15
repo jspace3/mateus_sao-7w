@@ -2,7 +2,7 @@
 
 ## Estrutura do Pacote
 
-\`\`\`
+```
 site-wordpress/
 ├── index.html          # Página principal completa
 ├── css/
@@ -26,7 +26,7 @@ site-wordpress/
 │       ├── 5.jpeg
 │       └── 6.jpeg
 └── README.md          # Este arquivo
-\`\`\`
+```
 
 ## Funcionalidades Incluídas
 

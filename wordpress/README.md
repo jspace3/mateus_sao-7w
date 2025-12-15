@@ -4,7 +4,7 @@ Arquivos HTML/CSS/JS simples para usar em qualquer site ou WordPress.
 
 ## 📁 Estrutura
 
-\`\`\`
+```
 wordpress/
 ├── index.html       # Página principal
 ├── style.css        # Estilos
@@ -14,7 +14,7 @@ wordpress/
 │   ├── logo.png     # Logo da Casa São Mateus
 │   └── favicon.svg  # Ícone do site
 └── README.md        # Este arquivo
-\`\`\`
+```
 
 ## 🚀 Como Usar
 

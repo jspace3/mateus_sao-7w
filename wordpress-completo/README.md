@@ -4,7 +4,7 @@ Este pacote contém todos os arquivos necessários para o site funcionar complet
 
 ## 📁 Estrutura de Pastas
 
-\`\`\`
+```
 wordpress-completo/
 ├── index.html              # Página principal
 ├── css/
@@ -27,7 +27,7 @@ wordpress-completo/
 │       ├── 5.jpeg
 │       └── 6.jpeg
 └── README.md              # Este arquivo
-\`\`\`
+```
 
 ## 🚀 Como Instalar
 
