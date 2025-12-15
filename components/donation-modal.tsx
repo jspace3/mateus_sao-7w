@@ -21,7 +21,6 @@ interface DonationModalProps {
 }
 
 export function DonationModal({ isOpen, onClose }: DonationModalProps) {
-  const [customValue, setCustomValue] = useState("")
   const [name, setName] = useState("")
   const [anonymous, setAnonymous] = useState(false)
   const [message, setMessage] = useState("")
@@ -42,13 +41,12 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
   }, [isOpen, onClose])
 
   const handleDonate = () => {
-    const valueToUse = selectedValue || Number.parseFloat(customValue)
-    if (!valueToUse || valueToUse < 1) {
-      alert("Por favor, escolha ou digite um valor para doar")
+    if (!selectedValue) {
+      alert("Por favor, escolha um valor para doar")
       return
     }
 
-    const valorObj = valores.find((v) => v.valor === valueToUse)
+    const valorObj = valores.find((v) => v.valor === selectedValue)
     if (valorObj && valorObj.link) {
       window.open(addUtmsToUrl(valorObj.link), "_blank")
     } else {
@@ -59,29 +57,28 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl animate-in fade-in zoom-in duration-200 max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold text-[#2D5A4C]">Qual valor deseja doar?</h3>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors">
-            <X className="w-6 h-6" />
+      <div className="relative bg-white rounded-t-3xl sm:rounded-2xl p-4 sm:p-5 w-full sm:max-w-md shadow-2xl animate-in fade-in slide-in-from-bottom sm:zoom-in duration-200 pb-safe">
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl font-bold text-[#2D5A4C] leading-tight">Qual valor deseja doar?</h3>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition-colors p-1">
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
-        <div className="grid grid-cols-3 gap-3 mb-6">
+        <div className="grid grid-cols-3 gap-2 mb-3 sm:mb-4">
           {valores.map((item) => (
             <button
               key={item.valor}
               onClick={() => {
                 setSelectedValue(item.valor)
-                setCustomValue("")
               }}
               disabled={!item.link}
-              className={`py-3 px-4 rounded-xl font-semibold text-lg transition-all border-2 ${
+              className={`py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg font-semibold text-sm sm:text-base transition-all border-2 ${
                 selectedValue === item.valor
                   ? "bg-[#2D5A4C] text-white border-[#2D5A4C]"
-                  : "bg-white text-[#2D5A4C] border-[#2D5A4C] hover:bg-[#2D5A4C]/10"
+                  : "bg-white text-[#2D5A4C] border-[#2D5A4C] hover:bg-[#2D5A4C]/10 active:bg-[#2D5A4C]/20"
               } ${!item.link ? "opacity-50 cursor-not-allowed" : ""}`}
             >
               R$ {item.valor}
@@ -89,67 +86,50 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
           ))}
         </div>
 
-        <div className="mb-6">
-          <p className="text-center text-gray-600 mb-3">Ou o que o seu coração mandar ❤️</p>
-          <div className="flex items-center border-2 border-gray-300 rounded-xl overflow-hidden focus-within:border-[#2D5A4C]">
-            <span className="bg-gray-100 px-4 py-3 text-gray-600 font-semibold">R$</span>
-            <input
-              type="number"
-              placeholder="Digite o valor"
-              value={customValue}
-              onChange={(e) => {
-                setCustomValue(e.target.value)
-                setSelectedValue(null)
-              }}
-              className="flex-1 px-4 py-3 outline-none"
-            />
-          </div>
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Seu nome</label>
+        <div className="mb-2 sm:mb-3">
+          <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">Seu nome</label>
           <input
             type="text"
             placeholder="Ex.: João Silva"
             value={name}
             onChange={(e) => setName(e.target.value)}
             disabled={anonymous}
-            className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl outline-none focus:border-[#2D5A4C] disabled:bg-gray-100"
+            className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg outline-none focus:border-[#2D5A4C] disabled:bg-gray-100 text-sm sm:text-base"
           />
         </div>
 
-        <div className="mb-4 flex items-center">
+        <div className="mb-2 sm:mb-3 flex items-center">
           <input
             type="checkbox"
             id="anonymous"
             checked={anonymous}
             onChange={(e) => setAnonymous(e.target.checked)}
-            className="w-5 h-5 text-[#2D5A4C] border-gray-300 rounded focus:ring-[#2D5A4C]"
+            className="w-4 h-4 sm:w-5 sm:h-5 text-[#2D5A4C] border-gray-300 rounded focus:ring-[#2D5A4C]"
           />
-          <label htmlFor="anonymous" className="ml-2 text-sm font-semibold text-gray-700">
+          <label htmlFor="anonymous" className="ml-2 text-xs sm:text-sm font-semibold text-gray-700">
             Doar anonimamente
           </label>
         </div>
 
-        <div className="mb-6">
-          <label className="block text-sm font-semibold text-gray-700 mb-2">Mensagem (opcional)</label>
+        <div className="mb-3 sm:mb-4">
+          <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5">Mensagem (opcional)</label>
           <textarea
             placeholder="Adicione uma mensagem de apoio (opcional)"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            rows={3}
-            className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl outline-none focus:border-[#2D5A4C] resize-none"
+            rows={2}
+            className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg outline-none focus:border-[#2D5A4C] resize-none text-sm sm:text-base"
           />
         </div>
 
         <button
           onClick={handleDonate}
-          className="w-full bg-[#2D5A4C] hover:bg-[#234539] text-white font-bold py-4 rounded-xl transition-all"
+          className="w-full bg-[#2D5A4C] hover:bg-[#234539] active:bg-[#1a3328] text-white font-bold py-3 rounded-lg transition-all text-sm sm:text-base"
         >
           Gerar Doação
         </button>
 
-        <p className="text-center text-gray-500 text-sm mt-4">Pagamento processado de forma segura via PIX</p>
+        <p className="text-center text-gray-500 text-xs mt-2 sm:mt-3">Pagamento processado de forma segura via PIX</p>
       </div>
     </div>
   )
