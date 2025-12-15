@@ -28,12 +28,17 @@ export default function RootLayout({
       <head>
         <Script id="utmify-pixel" strategy="afterInteractive">
           {`
-            window.pixelId = "693b71530e758f77c60023d9";
-            var a = document.createElement("script");
-            a.setAttribute("async", "");
-            a.setAttribute("defer", "");
-            a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-            document.head.appendChild(a);
+            try {
+              window.pixelId = "693b71530e758f77c60023d9";
+              var a = document.createElement("script");
+              a.setAttribute("async", "");
+              a.setAttribute("defer", "");
+              a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+              a.onerror = function() { console.log("[v0] Utmify pixel failed to load"); };
+              document.head.appendChild(a);
+            } catch(e) {
+              console.log("[v0] Error loading Utmify pixel:", e);
+            }
           `}
         </Script>
 
@@ -42,15 +47,24 @@ export default function RootLayout({
           data-utmify-prevent-xcod-sck="true"
           data-utmify-prevent-subids="true"
           strategy="afterInteractive"
+          onError={() => console.log("[v0] Utmify UTMs script failed to load")}
         />
 
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-175BZ8DWT0" strategy="afterInteractive" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-175BZ8DWT0"
+          strategy="afterInteractive"
+          onError={() => console.log("[v0] Google Analytics failed to load")}
+        />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-175BZ8DWT0');
+            try {
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-175BZ8DWT0');
+            } catch(e) {
+              console.log("[v0] Error initializing Google Analytics:", e);
+            }
           `}
         </Script>
       </head>
