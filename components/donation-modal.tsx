@@ -7,12 +7,12 @@ import { addUtmsToUrl } from "@/lib/add-utms"
 const valores = [
   { valor: 20, link: "https://pay.saomateus.online/693b4fa2482d3f7a0457cff6" },
   { valor: 30, link: "https://pay.saomateus.online/693b4fbd078bc7273992a0c8" },
-  { valor: 50, link: "https://pay.saomateus.online/693b4fa2482d3f7a0457cff6" },
-  { valor: 100, link: "https://pay.saomateus.online/693b500b078bc7273992a3b4" },
+  { valor: 40, link: "https://pay.saomateus.online/69407834a4bfc9d134d10c79" },
+  { valor: 60, link: "https://pay.saomateus.online/6940784cd586b426320e7fae" },
+  { valor: 80, link: "https://pay.saomateus.online/69407862526ddd70c901f3ed" },
+  { valor: 100, link: "https://pay.saomateus.online/694078c7526ddd70c901f64a" },
+  { valor: 130, link: "https://pay.saomateus.online/69407877a4bfc9d134d10da8" },
   { valor: 150, link: "https://pay.saomateus.online/693b4fee21becfe86a21c5d0" },
-  { valor: 250, link: "https://pay.saomateus.online/693b500b078bc7273992a3b4" },
-  { valor: 500, link: "https://pay.saomateus.online/693b5022482d3f7a0457d63e" },
-  { valor: 1000, link: "https://pay.saomateus.online/693b500b078bc7273992a3b4" },
 ]
 
 interface DonationModalProps {
